@@ -1,14 +1,15 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+// My custom modules
+import invoicesModule from "./invoices";
+import { InvoicesState } from "./invoices/state";
+
+export interface StateInterface {
+  invoices: InvoicesState;
+}
+
+export default createStore<StateInterface>({
   modules: {
-  }
-})
+    invoices: invoicesModule,
+  },
+});
