@@ -1,5 +1,5 @@
 <template>
-  <header class="flex items-center bg-slate-100 px-4 h-16">
+  <header class="flex items-center bg-slate-200 px-4 h-16 w-full">
     <div class="flex items-center justify-between lg:w-8/12 max-w-7xl lg:mx-auto">
       <div>
         <router-link to="/">
@@ -19,6 +19,10 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'HeaderComponent',
+  setup() {
+    return {
+    }
+  }
 });
 </script>
 

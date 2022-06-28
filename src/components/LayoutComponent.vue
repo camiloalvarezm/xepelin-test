@@ -1,5 +1,5 @@
 <template>
-    <div class="border border-black container mx-auto p-5 lg:p-10">
+    <div class="rounded-3xl my-10 container lg:mx-auto p-5 lg:p-10 max-w-full">
         <slot name="content"></slot>
     </div>
 </template>
