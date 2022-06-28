@@ -1,21 +1,12 @@
 import { createStore } from "vuex";
 import invoicesData from "../api/invoices.json";
-import { getDaysBetween } from "../utils/getDaysBetween";
 import { calculateBalance } from "../utils/calculateBalance";
 
-interface Invoice {
-  amount: number;
-  invoiceId: number;
-  issueDate: string;
-  issuerId: number;
-  paymentDate: string;
-  receiverId: number;
-}
 
 export default createStore({
   state: {
     invoices: [],
-    companyId: null,
+    companyId: 0,
     initialDate: "",
     endDate: "",
   },

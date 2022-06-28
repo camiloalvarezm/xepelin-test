@@ -12,7 +12,7 @@ interface Invoice {
 export const calculateBalance = (invoices: Array<Invoice>, companyId: null | number, initialDate: string, days: number) => {
   let entries = 0;
   let expenses = 0;
-  invoices.filter((invoice: Invoice) => {
+  invoices.forEach((invoice: Invoice) => {
     if (
       invoice.issuerId === companyId &&
       getDaysBetween(initialDate, invoice.paymentDate, days)
