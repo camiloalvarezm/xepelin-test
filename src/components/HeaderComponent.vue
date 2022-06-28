@@ -6,8 +6,8 @@
           <img alt="xepelin-logo" src="../assets/xepelin-logo.png" class="w-28">
         </router-link>
       </div>
-      <nav class="text-slate-400 font-semibold">
-        <router-link to="/" class="hover:text-red-500">Balance Compañia</router-link>
+      <nav class="text-slate-500 font-semibold">
+        <router-link to="/" class="hover:text-red-500">Balance Empresa</router-link>
         <router-link to="/top-ten-clients" class="hover:text-red-500">Top 10 Clientes</router-link>
       </nav>
     </div>

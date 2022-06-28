@@ -19,23 +19,27 @@
         </div>
       </div>
 
-      <div class="flex flex-col lg:flex-row bg-white rounded-3xl p-5 lg:p-10">
-        <div class="flex flex-col gap-4">
-          <h2 class="font-semibold text-lg">Balance para 7 días</h2>
-          <div class="flex flex-col">
-            <span class="font-semibold"><i class="fas fa-arrow-up text-green-500"></i> Ingresos: <span class="font-normal">${{ getBalanceForSevenDays.entries }}</span> </span>
-            <span class="font-semibold"><i class="fas fa-arrow-down text-red-500"></i> Egresos: <span class="font-normal">${{ getBalanceForSevenDays.expenses }}</span> </span>
-          </div>
-          <h2 class="font-semibold text-lg">Balance para 14 días</h2>
-          <div class="flex flex-col">
-            <span class="font-semibold"><i class="fas fa-arrow-up text-green-500"></i> Ingresos: <span class="font-normal">${{ getBalanceForFourteenDays.entries }}</span> </span>
-            <span class="font-semibold"><i class="fas fa-arrow-down text-red-500"></i> Egresos: <span class="font-normal">${{ getBalanceForFourteenDays.expenses }}</span> </span>
-          </div>
-          <h2 class="font-semibold text-lg">Balance para 30 días</h2>
-          <div class="flex flex-col">
-            <span class="font-semibold"><i class="fas fa-arrow-up text-green-500"></i> Ingresos: <span class="font-normal">${{ getBalanceForThirtyDays.entries }}</span>  </span>
-            <span class="font-semibold"><i class="fas fa-arrow-down text-red-500"></i> Egresos: <span class="font-normal">${{ getBalanceForThirtyDays.expenses }}</span>  </span>
-          </div>
+      <div class="flex flex-col md:flex-row md:justify-evenly bg-white rounded-3xl p-5 lg:p-10">
+        <div class="flex flex-col m-2">
+          <h2 class="font-semibold text-lg mb-2">Balance para 7 días</h2>
+          <span class="font-semibold"><i class="fas fa-arrow-up text-green-500"></i> Ingresos: <span
+              class="font-normal">${{ getBalanceForSevenDays.entries }}</span> </span>
+          <span class="font-semibold"><i class="fas fa-arrow-down text-red-500"></i> Egresos: <span
+              class="font-normal">${{ getBalanceForSevenDays.expenses }}</span> </span>
+        </div>
+        <div class="flex flex-col m-2">
+          <h2 class="font-semibold text-lg mb-2">Balance para 14 días</h2>
+          <span class="font-semibold"><i class="fas fa-arrow-up text-green-500"></i> Ingresos: <span
+              class="font-normal">${{ getBalanceForFourteenDays.entries }}</span> </span>
+          <span class="font-semibold"><i class="fas fa-arrow-down text-red-500"></i> Egresos: <span
+              class="font-normal">${{ getBalanceForFourteenDays.expenses }}</span> </span>
+        </div>
+        <div class="flex flex-col m-2">
+          <h2 class="font-semibold text-lg mb-2">Balance para 30 días</h2>
+          <span class="font-semibold"><i class="fas fa-arrow-up text-green-500"></i> Ingresos: <span
+              class="font-normal">${{ getBalanceForThirtyDays.entries }}</span> </span>
+          <span class="font-semibold"><i class="fas fa-arrow-down text-red-500"></i> Egresos: <span
+              class="font-normal">${{ getBalanceForThirtyDays.expenses }}</span> </span>
         </div>
       </div>
     </template>
@@ -64,7 +68,7 @@ export default defineComponent({
   methods: {
     ...mapMutations(['updateCompanyId', 'updateInitialDate']),
     calculateReport(): void {
-      if (!this.companyId === null || !this.initialDate) alert('Complete todos los campos')
+      if (!this.companyId === null && !this.initialDate) alert('Complete todos los campos')
       this.updateCompanyId(this.companyId)
       this.updateInitialDate(this.initialDate)
     }
