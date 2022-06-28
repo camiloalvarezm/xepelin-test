@@ -1,37 +1,47 @@
 import { createStore } from "vuex";
 import invoicesData from "../api/invoices.json";
+import { getDaysBetween } from "../utils/getDaysBetween";
+import { calculateBalance } from "../utils/calculateBalance";
 
-// interface Invoice {
-//   amount: number;
-//   invoiceId: number;
-//   issueDate: Date;
-//   issuerId: number;
-//   paymentDate: Date;
-//   receiverId: number;
-// }
+interface Invoice {
+  amount: number;
+  invoiceId: number;
+  issueDate: string;
+  issuerId: number;
+  paymentDate: string;
+  receiverId: number;
+}
 
 export default createStore({
   state: {
     invoices: [],
-    businessId: 0,
+    companyId: null,
+    initialDate: "",
+    endDate: "",
   },
   getters: {
-    getBalanceForSevenDays(state) {
-      return state.invoices[0] 
+    getBalanceForSevenDays({ invoices, companyId, initialDate }) {
+      return calculateBalance(invoices, companyId, initialDate, 7);
     },
-    getBalanceForFourteenDays(state) {
-      return state.businessId + 1 
+    getBalanceForFourteenDays({ invoices, companyId, initialDate }) {
+      return calculateBalance(invoices, companyId, initialDate, 14);
     },
-    getBalanceForThirtyDays(state) {
-      return state.businessId + 1 
+    getBalanceForThirtyDays({ invoices, companyId, initialDate }) {
+      return calculateBalance(invoices, companyId, initialDate, 30);
     },
   },
   mutations: {
     updateInvoices(state, payload) {
       state.invoices = payload;
     },
-    updateBusinessId(state, payload) {
-      state.businessId = payload;
+    updateCompanyId(state, payload) {
+      state.companyId = payload;
+    },
+    updateInitialDate(state, payload) {
+      state.initialDate = payload;
+    },
+    updateEndDate(state, payload) {
+      state.endDate = payload;
     },
   },
   actions: {
