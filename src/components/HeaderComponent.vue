@@ -1,6 +1,6 @@
 <template>
-  <header class="flex items-center bg-slate-200 px-4 h-16 w-full">
-    <div class="flex items-center justify-between lg:w-8/12 max-w-7xl lg:mx-auto">
+  <header class="bg-slate-200 p-4 w-full">
+    <div class="flex flex-col items-center justify-between lg:flex-row lg:w-8/12 max-w-7xl lg:mx-auto">
       <div>
         <router-link to="/">
           <img alt="xepelin-logo" src="../assets/xepelin-logo.png" class="w-28">

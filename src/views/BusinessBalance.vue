@@ -2,7 +2,7 @@
   <layout-component>
     <template v-slot:content>
       <div class="bg-white rounded-3xl p-5 lg:p-10 mb-5 lg:mb-10">
-        <h1 class="text-center mb-7 text-xl lg:text-3xl font-semibold">Ingresos y Egresos de una Compañía</h1>
+        <h1 class="text-center mb-7 text-xl lg:text-3xl font-semibold">Ingresos y Egresos de una Empresa</h1>
         <div class="flex flex-col items-center gap-2 lg:flex-row lg:justify-center ">
           <label for="company-id" class="w-full text-left font-semibold lg:w-auto">Id de la Empresa</label>
           <input v-model="companyId" type="number" placeholder="Ej: 142"
@@ -64,7 +64,7 @@ export default defineComponent({
   methods: {
     ...mapMutations(['updateCompanyId', 'updateInitialDate']),
     calculateReport(): void {
-      if (!this.companyId || !this.initialDate) alert('Complete todos los campos')
+      if (!this.companyId === null || !this.initialDate) alert('Complete todos los campos')
       this.updateCompanyId(this.companyId)
       this.updateInitialDate(this.initialDate)
     }
