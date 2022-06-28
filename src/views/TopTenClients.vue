@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col lg:flex-row bg-white rounded-3xl p-5 lg:p-10">
+      <div class="flex flex-col bg-white rounded-3xl p-5 lg:p-10">
         <div class="w-full overflow-x-scroll grid grid-cols-4 o-border">
           <h5 class="font-semibold">Cliente</h5>
           <h5 class="font-semibold">Venta Total</h5>
@@ -35,7 +35,9 @@
             <span>${{ Math.round(client.averageSale) }}</span>
           </template>
         </div>
-        <span v-if="getTopTenClients.length === 0" class="w-full font-semibold text-red-500 text-center mt-2 text-lg">Sin registros</span>
+        <span v-if="getTopTenClients.length === 0"
+          class="w-full font-semibold text-red-500 text-center mt-2 text-lg">Sin
+          registros</span>
       </div>
     </template>
   </layout-component>
@@ -69,6 +71,11 @@ export default defineComponent({
       this.updateInitialDate(this.initialDate)
       this.updateEndDate(this.endDate)
     }
+  },
+  created() {
+    this.updateCompanyId(0)
+    this.updateInitialDate('')
+    this.updateEndDate('')
   }
 });
 </script>

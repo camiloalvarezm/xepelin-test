@@ -66,12 +66,17 @@ export default defineComponent({
     ...mapGetters(['getBalanceForSevenDays', 'getBalanceForFourteenDays', 'getBalanceForThirtyDays'])
   },
   methods: {
-    ...mapMutations(['updateCompanyId', 'updateInitialDate']),
+    ...mapMutations(['updateCompanyId', 'updateInitialDate', 'updateEndDate']),
     calculateReport(): void {
       if (!this.companyId === null && !this.initialDate) alert('Complete todos los campos')
       this.updateCompanyId(this.companyId)
       this.updateInitialDate(this.initialDate)
     }
+  },
+  created() {
+    this.updateCompanyId(0)
+    this.updateInitialDate('')
+    this.updateEndDate('')
   }
 });
 </script>
